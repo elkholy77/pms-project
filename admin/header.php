@@ -24,7 +24,6 @@
   <header class="admin-header" style="background:#fff;border-bottom:1px solid #eee;padding:10px 0">
   <div style="max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;direction:rtl">
     <div style="display:flex;align-items:center;gap:12px">
-      <a href="/index.php" style="text-decoration:none;color:#333;font-weight:700">متجري</a>
     </div>
     <nav style="display:flex;gap:14px;align-items:center">
       <a href="order_data.php" style="color:#0b74de;text-decoration:none;font-weight:600">Saved Orders</a>
