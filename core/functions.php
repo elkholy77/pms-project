@@ -1,5 +1,6 @@
 <?php
 // session_start();
+//message functions
 function setmessage($type,$message){
     $_SESSION['message'] = [
         'type' => $type,
@@ -15,13 +16,15 @@ function showmessage(){
         unset($_SESSION['message']);
     }
 }
-
+//user functions
 $userjsonfile = __DIR__ . '/../data/users.json';
 
 if(!file_exists($userjsonfile)) {
     
     file_put_contents($userjsonfile, json_encode([]));
 }
+
+//register user
 function registeruser($username,$email,$password){
     $userjson=$GLOBALS['userjsonfile'];
     $userdatajson=file_get_contents($userjson);
@@ -36,7 +39,7 @@ function registeruser($username,$email,$password){
     file_put_contents($userjson, json_encode($user, JSON_PRETTY_PRINT));
     return true;
 }
-
+//login user
 function loginuser($email,$password){
     $userjson=$GLOBALS['userjsonfile'];
     $userdatajson=file_get_contents($userjson);
@@ -48,7 +51,15 @@ function loginuser($email,$password){
         }
     }return false;
 }
+//admin login
+function adminlogin($email,$password){
+    $adminEmail = "admin@gmail.com";
+    $adminPassword = "admin123";
+    if($email == $adminEmail && $password == $adminPassword){
+        return true;}
 
+}
+//cart count
 function cartcount($cart)
 {
     $count = 0;
@@ -62,7 +73,7 @@ function cartcount($cart)
         return null;
     }
 }
-
+//order functions
 $orderjsonfile = __DIR__ . '/../data/order.json';
 
 if(!file_exists($orderjsonfile)) {

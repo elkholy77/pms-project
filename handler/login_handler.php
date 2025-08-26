@@ -6,6 +6,11 @@ include_once '../core/validation.php';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = $_POST['email'] ;
     $password = $_POST['password'] ;
+
+        if(adminlogin($email, $password)) {
+        setmessage("success", "admin login successful");
+        header("Location: ../admin/order_data.php");
+        exit;}
     
    $errors=validatelogin($email,$password);
 
@@ -13,7 +18,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     setmessage("danger", $errors);
     header("Location: ../login.php");
     exit;
-}
+}   
+
     if(loginuser($email, $password)) {
         setmessage("success", "login successful");
         header("Location: ../index.php");

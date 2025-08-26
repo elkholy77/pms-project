@@ -17,7 +17,7 @@ require_once('inc/header.php'); ?>
     <div class="container px-4 px-lg-5 mt-5">
         <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
 
-
+            
             <div class="col mb-5">
                 <form action="handler/cart_handler.php" method="post">
                     <div class="card h-100">

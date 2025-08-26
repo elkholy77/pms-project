@@ -53,5 +53,10 @@
         "name": "mostafa",
         "email": "mostafa1@gmail.com",
         "password": "$2y$10$SLTUW2TAgwEFW61DY3U\/WOcdHaecLLWenS9bQn7wRQyhNGfHTG57q"
+    },
+    {
+        "name": "Elkholy",
+        "email": "mos550tafa@gmail.com",
+        "password": "$2y$10$U2EK55EPx091WlGpG6JmfecAJSOdbbOYZXrRn0LjYsQ23sUqyuZJ2"
     }
 ]
