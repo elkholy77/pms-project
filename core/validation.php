@@ -1,0 +1,52 @@
+<?php
+function validaterequired($value,$name){
+    return empty($value) ? "$name is required." : null;
+}
+function validateemail($value){
+    return filter_var($value, FILTER_VALIDATE_EMAIL) ? null : "invalid email";
+}
+function validatepassword($password){
+    if(strlen($password) <6){
+        return "password must be at least 6 characters long";
+    } elseif(!preg_match('/[A-Z]/', $password)) {
+        return "password must contain uppercase letter";
+    } elseif(!preg_match('/[a-z]/', $password)) {
+        return "password must contain lowercase letter";
+    } elseif(!preg_match('/[0-9]/', $password)) {
+        return "password must contain number";
+    }
+    return null;}
+
+function validateregister($name, $email, $password) {
+    $fileds = [
+        'name' => $name,
+        'email' => $email,
+        'password' => $password
+    ];
+    foreach ($fileds as $key => $value) {
+        if($error= validaterequired($value, $key)) {
+            return $error;
+        }    
+    } 
+        if($error = validateemail($email)) {
+        return $error;}
+        
+        if($error = validatepassword($password)) {
+            return $error;
+        }
+}
+
+    function validatelogin($email, $password) {
+    $fileds = [
+        'email' => $email,
+        'password' => $password
+    ];
+    foreach ($fileds as $key => $value) {
+        if($error= validaterequired($value, $key)) {
+            return $error;
+        }    
+    } 
+        if($error = validateemail($email)) {
+        return $error;}
+        
+}
