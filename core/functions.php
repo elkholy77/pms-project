@@ -63,4 +63,25 @@ function cartcount($cart)
     }
 }
 
+$orderjsonfile = __DIR__ . '/../data/order.json';
 
+if(!file_exists($orderjsonfile)) {
+    
+    file_put_contents($orderjsonfile, json_encode([]));}
+
+function dataorder($data){
+
+    $orderjson=$GLOBALS['orderjsonfile'];
+    $orderdatajson=file_get_contents($orderjson);
+    $order=json_decode($orderdatajson,true);
+    $neworder=[
+        'name'=>$data['name'],
+        'email'=>$data['email'],
+        'address'=>$data['address'],
+        'phone'=>$data['phone'],
+        'notes'=>$data['notes'],
+        'cart'=>$data['cart'] ];
+    $order[]=$neworder;
+    file_put_contents($orderjson, json_encode($order, JSON_PRETTY_PRINT));
+    return true;
+}

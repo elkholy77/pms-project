@@ -18,4 +18,6 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
         setmessage("success", "user register successfully");
         header("location: ../login.php");
         exit;}
+
+        
 }

@@ -50,3 +50,22 @@ function validateregister($name, $email, $password) {
         return $error;}
         
 }
+
+function ordervalidate($name,$address,$email,$phone,$notes){
+    $fileds=[
+        'name'=>$name,
+        'email'=>$email,
+        'address'=>$address,
+        'phone'=>$phone,
+        'notes'=>$notes
+    ];
+    foreach($fileds as $key=>$value){
+        if($error=validaterequired($value,$key)){
+            return $error;
+        }
+    }
+    if($error=validateemail($email)){
+        return $error;
+    }
+}
+
