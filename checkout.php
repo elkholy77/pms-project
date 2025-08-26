@@ -61,7 +61,11 @@ require_once('core/functions.php');
                 </div>
             </div>
             <div class="col-8">
+<<<<<<< HEAD
                 <form method="post" action="handler/order_data_handler.php"  class="form border my-2 p-3">
+=======
+                <form action="" class="form border my-2 p-3">
+>>>>>>> 87dc7f46af1ce05fc95204573716bd11dcfa59e1
                     <div class="mb-3">
                         <div class="mb-3">
                             <label for="name">Name</label>
