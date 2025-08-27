@@ -5,7 +5,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $id     = $_POST['product_id'];
     $name   = $_POST['name'];
     $price  = $_POST['price'];
-    $quantity    = $_POST['quantity'];
+    $quantity = $_POST['quantity'];
 
     if (!isset($_SESSION['cart'])) {
         $_SESSION['cart'] = [];

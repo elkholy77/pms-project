@@ -25,11 +25,10 @@ require_once('core/functions.php');
                     $total = 0;
                     foreach($_SESSION['cart'] as $details):
                     $total+=  $details['price'] * $details['quantity'];
-                    $sum+=$total;
                     ?>
                         <ul class="list-unstyled">
                             <li class="border p-2 my-1"><?php echo $details['name']; ?> * <?php echo $details['quantity']; ?> =
-                                <span class="text-success mx-2 mr-auto bold"><?php echo $total?> </span>
+                                <span class="text-success mx-2 mr-auto bold"><?php echo $details['price'] * $details['quantity'];?> </span>
                             </li>
                             <!-- <li class="border p-2 my-1"> Product #1 -
                                 <span class="text-success mx-2 mr-auto bold">2 x 25$</span>
@@ -54,7 +53,7 @@ require_once('core/functions.php');
                     endif;?>
                     </div>
                     <?php if(isset($_SESSION['cart'])):?>
-                    <h3>Total : <?php echo $sum?></h3>
+                    <h3>Total : <?php echo $total?></h3>
                     <?php else:?>
                         <h3>Total : 0</h3>
                     <?php endif;?>

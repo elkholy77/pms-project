@@ -69,3 +69,21 @@ function ordervalidate($name,$address,$email,$phone,$notes){
     }
 }
 
+//validate item
+function validateitem($name,$price,$details){
+    $fileds=[
+        'name'=>$name,
+        'price'=>$price,
+        'details'=>$details
+    ];
+ foreach($fileds as $key=>$value){
+        if($error=validaterequired($value,$key)){
+            return $error;
+        }
+
+        if($key==='price' && (!is_numeric($value) || $value <= 0)){
+            return "price must be a positive number";
+        }
+        
+    
+}}

@@ -1,18 +1,13 @@
 <?php
 include 'header.php';
+// include __DIR__ . '/../core/functions.php';
 ?>
   <div class="container">
     <h1>Saved Orders</h1>
             <?php
-            $count=0; 
-            $order_file= __DIR__ . '/../data/order.json';
-            $json_file=file_get_contents($order_file);
-              $orders=json_decode($json_file,true);
-              foreach($orders as $order):
+              foreach(getorders() as $order):
                 $cart=$order['cart'];
-                $count_item=count($cart);
-                $count+=1;
-                
+                $count_item=count($cart);                
               ?>
     <table>
       <thead>
@@ -27,7 +22,7 @@ include 'header.php';
       <tbody>
               
             <tr>
-            <td><?php echo $count;?></td>
+            <td><?php echo $order['id'];?></td>
             <td><?php echo $order['name'] ?></td>
             <td><?php echo $order['email'] ?></td>
             <td><?php echo $order['address'] ?></td>

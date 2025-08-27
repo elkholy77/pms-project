@@ -85,7 +85,9 @@ function dataorder($data){
     $orderjson=$GLOBALS['orderjsonfile'];
     $orderdatajson=file_get_contents($orderjson);
     $order=json_decode($orderdatajson,true);
+    $newid=empty($order) ? 1 : max(array_column($order, 'id')) + 1;
     $neworder=[
+        'id'=>$newid,
         'name'=>$data['name'],
         'email'=>$data['email'],
         'address'=>$data['address'],
@@ -95,4 +97,46 @@ function dataorder($data){
     $order[]=$neworder;
     file_put_contents($orderjson, json_encode($order, JSON_PRETTY_PRINT));
     return true;
+}
+
+function getorders(){
+    $orderjson=$GLOBALS['orderjsonfile'];
+    $orderdatajson=file_get_contents($orderjson);
+    $orders=json_decode($orderdatajson,true);
+    return $orders;
+}
+
+
+
+//items
+$itemsjsonfile = __DIR__ . '/../data/items.json';
+
+if(!file_exists($itemsjsonfile)) {
+    
+    file_put_contents($itemsjsonfile, json_encode([]));}
+
+function additem($name,$price,$details,$file_path){
+    $itemsjson=$GLOBALS['itemsjsonfile'];
+    $itemsdatajson=file_get_contents($itemsjson);
+    $item=json_decode($itemsdatajson,true);
+    $newid=empty($item) ? 1 : max(array_column($item, 'id')) + 1;
+    $newitem=[
+        'id'=>$newid,
+        'name'=>$name,
+        'price'=>$price,
+        'details'=>$details,
+        'image'=>$file_path
+    ];
+    $item[]=$newitem;
+    file_put_contents($itemsjson, json_encode($item, JSON_PRETTY_PRINT));
+    return true;
+
+}
+
+function getitems(){
+        $itemsjson=$GLOBALS['itemsjsonfile'];
+    $itemsdatajson=file_get_contents($itemsjson);
+    $item=json_decode($itemsdatajson,true);
+    return $item;
+
 }

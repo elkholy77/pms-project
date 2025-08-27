@@ -36,7 +36,6 @@ require_once('inc/header.php');
                     $total = 0;
                         foreach($_SESSION['cart'] as $details):
                             $total+=  $details['price'] * $details['quantity'];
-                            $sum+=$total;
                             ?>
 
                         <tr>
@@ -46,7 +45,7 @@ require_once('inc/header.php');
                             <td>
                                 <input type="number" value="<?php echo $details['quantity']; ?>">
                             </td>
-                            <td><?php echo $total; ?></td> 
+                            <td><?php echo  $details['price'] * $details['quantity']; ?></td> 
 
                             <td>
                                 <form action="handler/del_handler.php" method="post">
@@ -67,7 +66,7 @@ require_once('inc/header.php');
                             </td>
                             <td colspan="3">
                                 <?php if(isset($_SESSION['cart'])):?>
-                                <h3><?php echo $sum;?> $</h3>
+                                <h3><?php echo $total;?> $</h3>
                                 <?php else:?>
                                 <h3>0</h3>
                                 <?php endif;?>

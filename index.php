@@ -17,32 +17,9 @@ require_once('inc/header.php'); ?>
     <div class="container px-4 px-lg-5 mt-5">
         <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
 
-            
-            <div class="col mb-5">
-                <form action="handler/cart_handler.php" method="post">
-                    <div class="card h-100">
-                        <!-- Product image-->
-                        <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-                        <!-- Product details-->
-                        <div class="card-body p-4">
-                            <div class="text-center">
-                                <!-- Product name-->
-                                <h5 class="fw-bolder">Fancy Product</h5>
-                                <!-- Product price-->
-                                $40.00 - $80.00
-                            </div>
-                        </div>
-                        <!-- Product actions-->
-                        <input type="hidden" name="product_id" value="1">
-                        <input type="hidden" name="quantity" value="1">
-                        <input type="hidden" name="price" value="40">
-                        <input type="hidden" name="name" value="Fancy Product">
-                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><button type="submit" class="btn btn-outline-dark mt-auto">add to cart</button></div>
-                        </div>
-                    </div>
-                </form>
-            </div>
+            <?php 
+            foreach(getitems() as $item):
+            ?>
 
 
             <div class="col mb-5">
@@ -53,12 +30,12 @@ require_once('inc/header.php'); ?>
                         <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale
                         </div>
                         <!-- Product image-->
-                        <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+                        <img class="card-img-top" src="<?php echo $item['image']?>" alt="..." />
                         <!-- Product details-->
                         <div class="card-body p-4">
                             <div class="text-center">
                                 <!-- Product name-->
-                                <h5 class="fw-bolder">Special Item</h5>
+                                <h5 class="fw-bolder"><?php echo $item['name']?></h5>
                                 <!-- Product reviews-->
                                 <div class="d-flex justify-content-center small text-warning mb-2">
                                     <div class="bi-star-fill"></div>
@@ -68,15 +45,15 @@ require_once('inc/header.php'); ?>
                                     <div class="bi-star-fill"></div>
                                 </div>
                                 <!-- Product price-->
-                                <span class="text-muted text-decoration-line-through">$20.00</span>
-                                $18.00
+                                 <?php echo $item['price']?>
                             </div>
+                            <div><h6><?php echo $item['details']?></h6></div>
                         </div>
                         <!-- Product actions-->
-                        <input type="hidden" name="product_id" value="2">
+                        <input type="hidden" name="product_id" value="<?php echo $item['id']?>">
                         <input type="hidden" name="quantity" value="1">
-                        <input type="hidden" name="price" value="18">
-                        <input type="hidden" name="name" value="Special Item">
+                        <input type="hidden" name="price" value="<?php echo $item['price']?>">
+                        <input type="hidden" name="name" value="<?php echo $item['name']?>">
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                             <div class="text-center"><button type="submit" class="btn btn-outline-dark mt-auto">add to cart</button></div>
 
@@ -84,366 +61,7 @@ require_once('inc/header.php'); ?>
                     </div>
                 </form>
             </div>
-
-
-
-            <div class="col mb-5">
-                <form action="handler/cart_handler.php" method="post">
-                    <div class="card h-100">
-                        <!-- Sale badge-->
-                        <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale
-                        </div>
-                        <!-- Product image-->
-                        <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-                        <!-- Product details-->
-                        <div class="card-body p-4">
-                            <div class="text-center">
-                                <!-- Product name-->
-                                <h5 class="fw-bolder">Sale Item</h5>
-                                <!-- Product price-->
-                                <span class="text-muted text-decoration-line-through">$50.00</span>
-                                $25.00
-                            </div>
-                        </div>
-                        <!-- Product actions-->
-                        <input type="hidden" name="product_id" value="3">
-                        <input type="hidden" name="quantity" value="1">
-                        <input type="hidden" name="price" value="25">
-                        <input type="hidden" name="name" value="Sale Item">
-                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><button type="submit" class="btn btn-outline-dark mt-auto">add to cart</button></div>
-
-                        </div>
-                    </div>
-                </form>
-            </div>
-
-
-
-            <div class="col mb-5">
-                <form action="handler/cart_handler.php" method="post">
-                    <div class="card h-100">
-                        <!-- Product image-->
-                        <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-                        <!-- Product details-->
-                        <div class="card-body p-4">
-                            <div class="text-center">
-                                <!-- Product name-->
-                                <h5 class="fw-bolder">Popular Item</h5>
-                                <!-- Product reviews-->
-                                <div class="d-flex justify-content-center small text-warning mb-2">
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                </div>
-                                <!-- Product price-->
-                                $40.00
-                            </div>
-                        </div>
-                        <!-- Product actions-->
-                        <input type="hidden" name="product_id" value="4">
-                        <input type="hidden" name="quantity" value="1">
-                        <input type="hidden" name="price" value="40">
-                        <input type="hidden" name="name" value="Popular Item">
-                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><button type="submit" class="btn btn-outline-dark mt-auto">add to cart</button></div>
-
-                        </div>
-                    </div>
-                </form>
-            </div>
-
-
-
-            <div class="col mb-5">
-                <form action="handler/cart_handler.php" method="post">
-                    <div class="card h-100">
-                        <!-- Sale badge-->
-                        <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale
-                        </div>
-                        <!-- Product image-->
-                        <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-                        <!-- Product details-->
-                        <div class="card-body p-4">
-                            <div class="text-center">
-                                <!-- Product name-->
-                                <h5 class="fw-bolder">Sale Item</h5>
-                                <!-- Product price-->
-                                <span class="text-muted text-decoration-line-through">$50.00</span>
-                                $25.00
-                            </div>
-                        </div>
-                        <!-- Product actions-->
-                        <input type="hidden" name="product_id" value="5">
-                        <input type="hidden" name="quantity" value="1">
-                        <input type="hidden" name="price" value="25">
-                        <input type="hidden" name="name" value="Sale Item">
-                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><button type="submit" class="btn btn-outline-dark mt-auto">add to cart</button></div>
-
-                        </div>
-                    </div>
-                </form>
-            </div>
-
-
-
-            <div class="col mb-5">
-                <form action="handler/cart_handler.php" method="post">
-                    <div class="card h-100">
-                        <!-- Product image-->
-                        <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-                        <!-- Product details-->
-                        <div class="card-body p-4">
-                            <div class="text-center">
-                                <!-- Product name-->
-                                <h5 class="fw-bolder">Fancy Product</h5>
-                                <!-- Product price-->
-                                $120.00 - $280.00
-                            </div>
-                        </div>
-                        <!-- Product actions-->
-                        <input type="hidden" name="product_id" value="6">
-                        <input type="hidden" name="quantity" value="1">
-                        <input type="hidden" name="price" value="120">
-                        <input type="hidden" name="name" value="Fancy Product">
-                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><button type="submit" class="btn btn-outline-dark mt-auto">add to cart</button></div>
-
-                        </div>
-                    </div>
-                </form>
-            </div>
-
-
-
-            <div class="col mb-5">
-                <form action="handler/cart_handler.php" method="post">
-                    <div class="card h-100">
-                        <!-- Sale badge-->
-                        <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale
-                        </div>
-                        <!-- Product image-->
-                        <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-                        <!-- Product details-->
-                        <div class="card-body p-4">
-                            <div class="text-center">
-                                <!-- Product name-->
-                                <h5 class="fw-bolder">Special Item</h5>
-                                <!-- Product reviews-->
-                                <div class="d-flex justify-content-center small text-warning mb-2">
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                </div>
-                                <!-- Product price-->
-                                <span class="text-muted text-decoration-line-through">$20.00</span>
-                                $18.00
-                            </div>
-                        </div>
-                        <!-- Product actions-->
-                        <input type="hidden" name="product_id" value="7">
-                        <input type="hidden" name="quantity" value="1">
-                        <input type="hidden" name="price" value="18">
-                        <input type="hidden" name="name" value="Special Item">
-                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><button type="submit" class="btn btn-outline-dark mt-auto">add to cart</button></div>
-
-                        </div>
-                    </div>
-                </form>
-            </div>
-
-
-
-            <div class="col mb-5">
-                <form action="handler/cart_handler.php" method="post">
-                    <div class="card h-100">
-                        <!-- Product image-->
-                        <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-                        <!-- Product details-->
-                        <div class="card-body p-4">
-                            <div class="text-center">
-                                <!-- Product name-->
-                                <h5 class="fw-bolder">Popular Item</h5>
-                                <!-- Product reviews-->
-                                <div class="d-flex justify-content-center small text-warning mb-2">
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                </div>
-                                <!-- Product price-->
-                                $40.00
-                            </div>
-                        </div>
-                        <!-- Product actions-->
-                        <input type="hidden" name="product_id" value="8">
-                        <input type="hidden" name="quantity" value="1">
-                        <input type="hidden" name="price" value="40">
-                        <input type="hidden" name="name" value="Popular Item">
-                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><button type="submit" class="btn btn-outline-dark mt-auto">add to cart</button></div>
-
-                        </div>
-                    </div>
-                </form>
-            </div>
-
-
-
-            <div class="col mb-5">
-                <form action="handler/cart_handler.php" method="post">
-                    <div class="card h-100">
-                        <!-- Product image-->
-                        <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-                        <!-- Product details-->
-                        <div class="card-body p-4">
-                            <div class="text-center">
-                                <!-- Product name-->
-                                <h5 class="fw-bolder">Popular Item</h5>
-                                <!-- Product reviews-->
-                                <div class="d-flex justify-content-center small text-warning mb-2">
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                </div>
-                                <!-- Product price-->
-                                $40.00
-                            </div>
-                        </div>
-                        <!-- Product actions-->
-                        <input type="hidden" name="product_id" value="9">
-                        <input type="hidden" name="quantity" value="1">
-                        <input type="hidden" name="price" value="40">
-                        <input type="hidden" name="name" value="Popular Item">
-                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><button type="submit" class="btn btn-outline-dark mt-auto">add to cart</button></div>
-
-                        </div>
-                    </div>
-                </form>
-            </div>
-
-
-
-            <div class="col mb-5">
-                <form action="handler/cart_handler.php" method="post">
-                    <div class="card h-100">
-                        <!-- Product image-->
-                        <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-                        <!-- Product details-->
-                        <div class="card-body p-4">
-                            <div class="text-center">
-                                <!-- Product name-->
-                                <h5 class="fw-bolder">Popular Item</h5>
-                                <!-- Product reviews-->
-                                <div class="d-flex justify-content-center small text-warning mb-2">
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                </div>
-                                <!-- Product price-->
-                                $40.00
-                            </div>
-                        </div>
-                        <!-- Product actions-->
-                        <input type="hidden" name="product_id" value="10">
-                        <input type="hidden" name="quantity" value="1">
-                        <input type="hidden" name="price" value="40">
-                        <input type="hidden" name="name" value="Popular Item">
-                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><button type="submit" class="btn btn-outline-dark mt-auto">add to cart</button></div>
-
-                        </div>
-                    </div>
-                </form>
-            </div>
-
-
-
-            <div class="col mb-5">
-                <form action="handler/cart_handler.php" method="post">
-                    <div class="card h-100">
-                        <!-- Product image-->
-                        <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-                        <!-- Product details-->
-                        <div class="card-body p-4">
-                            <div class="text-center">
-                                <!-- Product name-->
-                                <h5 class="fw-bolder">Popular Item</h5>
-                                <!-- Product reviews-->
-                                <div class="d-flex justify-content-center small text-warning mb-2">
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                </div>
-                                <!-- Product price-->
-                                $40.00
-                            </div>
-                        </div>
-                        <!-- Product actions-->
-                        <input type="hidden" name="product_id" value="1">
-                        <input type="hidden" name="quantity" value="1">
-                        <input type="hidden" name="price" value="40">
-                        <input type="hidden" name="name" value="Fancy Product">
-                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><button type="submit" class="btn btn-outline-dark mt-auto">add to cart</button></div>
-
-                        </div>
-                    </div>
-                </form>
-            </div>
-
-
-
-            <div class="col mb-5">
-                <form action="handler/cart_handler.php" method="post">
-                    <div class="card h-100">
-                        <!-- Product image-->
-                        <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-                        <!-- Product details-->
-                        <div class="card-body p-4">
-                            <div class="text-center">
-                                <!-- Product name-->
-                                <h5 class="fw-bolder">Popular Item</h5>
-                                <!-- Product reviews-->
-                                <div class="d-flex justify-content-center small text-warning mb-2">
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                </div>
-                                <!-- Product price-->
-                                $40.00
-                            </div>
-                        </div>
-                        <!-- Product actions-->
-                        <input type="hidden" name="product_id" value="1">
-                        <input type="hidden" name="quantity" value="1">
-                        <input type="hidden" name="price" value="40">
-                        <input type="hidden" name="name" value="Fancy Product">
-                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><button type="submit" class="btn btn-outline-dark mt-auto">add to cart</button></div>
-
-                        </div>
-                    </div>
-                </form>
-            </div>
-
-
+            <?php endforeach;?>
 
         </div>
     </div>

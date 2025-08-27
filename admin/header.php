@@ -1,3 +1,7 @@
+<?php 
+include '../core/functions.php';
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="ar">
 <head>
@@ -32,3 +36,4 @@
     </nav>
   </div>
 </header>
+<?php  showmessage() ?>
