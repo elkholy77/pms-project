@@ -91,8 +91,8 @@ function dataorder($data){
         'name'=>$data['name'],
         'email'=>$data['email'],
         'address'=>$data['address'],
-        'phone'=>$data['phone'],
-        'notes'=>$data['notes'],
+        'phone'=>$data['Phone'],
+        'notes'=>$data['Notes'],
         'cart'=>$data['cart'] ];
     $order[]=$neworder;
     file_put_contents($orderjson, json_encode($order, JSON_PRETTY_PRINT));

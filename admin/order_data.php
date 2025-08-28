@@ -16,6 +16,7 @@ include 'header.php';
           <th>name</th>
           <th>email</th>
           <th>address</th>
+          <th>phone</th>
           <th>number of item</th>
         </tr>
       </thead>
@@ -26,6 +27,7 @@ include 'header.php';
             <td><?php echo $order['name'] ?></td>
             <td><?php echo $order['email'] ?></td>
             <td><?php echo $order['address'] ?></td>
+            <td><?php echo $order['phone'] ?></td>
             <td><?php echo $count_item?></td>
             </tr>
 
@@ -49,6 +51,9 @@ include 'header.php';
             <?php endforeach; ?>
 
           </td>
+        </tr>
+        <tr>
+          <td><strong>note:<h6><?php echo $order['notes'] ?></h6></strong></td>
         </tr>
         <tr>
             <td><strong>total:<?php echo $sum; ?></strong></td>
